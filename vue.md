@@ -2,9 +2,9 @@
 
 Vue is a versatile and beginner-friendly JavaScript framework. Below is a short guide on writing Vue for this codebase. 
 
-## Component Template Structure
+## File Structure
 
-Vue's `.vue` files allow you to write the structure (HTML), style (CSS), and behavior (JavaScript) of a component in a single file. This is called an SFC (Single File Component), and includes:
+A typical `.vue` file includes;
 - A `<template>` block for HTML markup
 - A `<script>` block for js logic
 - A `<style>` block for css styling
@@ -24,17 +24,14 @@ Like this:
 </style>
 ```
 > [!NOTE]  
-> **Vue components can only have one root element inside the `<template>`. If you have more, throw it in a wrapper.**
+> Vue components can only have one root element inside the `<template>`. If you have more, throw it in a wrapper.
 
-## Adding CSS Classes
+> [!NOTE]   
+> You should almost always use `<style scoped>` to limit the css to the current component
 
-**Use the `class` attribute to apply CSS classes.**
-
-```vue
-<div class="wrapper box">
-  ...
-</div>
-```
+## Vue-specific syntax
+> [!WARNING]    
+> The below content only applies to Vue, and will not work on other JavaScript frameworks or vanilla JavaScript
 
 ## Looping Through Data: `v-for`
 
