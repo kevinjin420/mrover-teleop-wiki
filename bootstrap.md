@@ -1,10 +1,10 @@
 # Bootstrap Introduction
 
-intro
+Bootstrap is a css framework that makes css styling a whole lot easier for you. In this codebase, bootstrap's spacing utility is frequently used. Click [here](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to access Bootstrap docs. 
 
 
 ## Bootstrap Spacing Utility
-When working with the codebase, you will encounter many classes such as `px-2` and `m-3`. These classes are a part of the bootstrap framework, and provide a convenient method to space out components. 
+When working with the codebase, you will encounter many css classes such as `px-2` and `m-3`. These classes are a part of the bootstrap framework, and provide a convenient method to space out components. Click [here](https://getbootstrap.com/docs/5.3/utilities/spacing/#margin-and-padding) to read specifics, below is a short summary. 
 
 ### Property - first letter
 - `m` – margin
@@ -31,9 +31,11 @@ When working with the codebase, you will encounter many classes such as `px-2` a
 ### What the hell is a `rem`:
 `rem`, or **r**oot **e**le**m**ent, is a measurement that corresponds to the font size of the root element. By default in most browsers:
 
-    html {
-        font-size: 16px;
-    }
+```css
+html {
+    font-size: 16px;
+}
+```
 
 Therefore, in this case, `1rem = 16px`, `0.5rem = 8px`, etc. 
 
