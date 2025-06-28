@@ -27,7 +27,7 @@ Like this:
 > Vue components can only have one root element inside the `<template>`. If you have more, throw it in a wrapper.
 
 > [!NOTE]   
-> You should almost always use `<style scoped>` to limit the css to the current component
+> You should almost always use `<style scoped>` to limit the css to the current component. Only top-level css definitions such as `island` should be defined without `<style scoped>`. See `teleoperation/basestation/frontend/src/App.vue`. 
 
 ## Vue-specific syntax
 > [!WARNING]    
@@ -179,15 +179,20 @@ unmounted() {
 **Import other files for reuse.**
 
 ```js
-import { mapGetters } from 'vuex'
 import Component from './Component.vue'
+```
+
+> [!WARNING]  
+> Ever since Vuex 4, 
+```
+import { mapGetters } from 'vuex'
 ```
 
 ---
 
 ## Child Components
 
-**Register child components that you want to use inside this component.**
+Register child components that you want to use inside this component. If you don't register it, Vue won't recognize it. 
 
 ```js
 components: {
@@ -195,21 +200,5 @@ components: {
 }
 ```
 
----
 
-## Scoped CSS
-
-**Style only this component by using the `scoped` attribute.**
-
-```vue
-<style scoped>
-.wrapper {
-  margin: 1px;
-}
-.box {
-  border: 1px solid grey;
-}
-</style>
-```
-
-## See [here](https://www.youtube.com/watch?v=xvFZjo5PgG0&pp=0gcJCdgAo7VqN5tD) for a complete example
+## See [here](https://www.youtube.com/watch?v=xvFZjo5PgG0&pp=0gcJCdgAo7VqN5tD) for a complete example (need to fix later lol)
