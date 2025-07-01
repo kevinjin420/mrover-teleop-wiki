@@ -1,6 +1,6 @@
 # Vue Introduction
 
-Vue is a versatile and beginner-friendly JavaScript framework. This introduction is only going to cover what is relevant to our codebase. There will be an example provided along with every point. 
+Vue is a versatile and beginner-friendly JavaScript framework. This introduction is only going to cover what is relevant to our codebase. 
 
 ## File Structure
 
@@ -33,9 +33,16 @@ Like this:
 
 ## Looping Through Data: `v-for`
 
+frontend/src/components/AutonWaypointEditor.vue
 ```vue
-<div v-for="elt in arr">
-  {{ elt }}
+<WaypointStore
+  v-for="(waypoint, index) in waypoints"
+  :key="waypoint"
+  :waypoint="waypoint"
+  :index="index"
+  @add="addItem"
+  @delete="deleteMapWaypoint"
+/>
 </div>
 ```
 
@@ -43,20 +50,34 @@ Like this:
 
 **Only render the element if the condition is true.**
 
+frontend/src/components/AutonWaypointItem.vue
+
 ```vue
-<div v-if="x > 2">
-  <p>x is greater than two</p>
-</div>
+<button
+  v-if="!enable_costmap"
+  class="btn btn-danger"
+  @click="toggleCostmap"
+>
+  Costmap
+</button>
+
+<button
+  v-if="enable_costmap"
+  class="btn btn-success"
+  @click="toggleCostmap"
+>
+  Costmap
+</button>
 ```
 
 ## Event Binding: `v-on` / `@`
 
 **Bind a function to an event like `click`.**
 
+frontend/src/components/CameraFeed.vue
+
 ```vue
-<button v-on:click="addOnetoX()">Click Me</button>
-<!-- or shorthand -->
-<button @click="addOnetoX()">Click Me</button>
+<canvas :id="'stream-' + id" v-on:click="handleClick"></canvas>
 ```
 
 ## Data Properties
@@ -171,9 +192,14 @@ import Component from './Component.vue'
 ```
 
 > [!WARNING]  
-> Ever since Vuex 4, 
+> Ever since Vuex 4, instead of this, which gives a warning
 ```
 import { mapGetters } from 'vuex'
+```
+You should do this instead
+```
+import Vuex from 'vuex'
+const { mapGetters } = 'vuex'
 ```
 
 ---
@@ -189,4 +215,4 @@ components: {
 ```
 
 
-## See [here](https://www.youtube.com/watch?v=xvFZjo5PgG0&pp=0gcJCdgAo7VqN5tD) for a complete example (need to fix later lol)
+## See [here](https://www.youtube.com/watch?v=xvFZjo5PgG0&pp=0gcJCdgAo7VqN5tD) for a complete example 
