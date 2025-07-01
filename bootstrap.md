@@ -28,7 +28,7 @@ When working with the codebase, you will encounter many css classes such as `px-
 - `5` – 3rem
 - `auto` – auto margin (only for `m`)
 
-### What the hell is a `rem`:
+### What is a `rem`:
 `rem`, or **r**oot **e**le**m**ent, is a measurement that corresponds to the font size of the root element. By default in most browsers:
 
 ```css

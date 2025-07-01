@@ -1,6 +1,6 @@
-# Vue Fundamentals
+# Vue Introduction
 
-Vue is a versatile and beginner-friendly JavaScript framework. Below is a short guide on writing Vue for this codebase. 
+Vue is a versatile and beginner-friendly JavaScript framework. This introduction is only going to cover what is relevant to our codebase. There will be an example provided along with every point. 
 
 ## File Structure
 
@@ -23,27 +23,15 @@ Like this:
     /* Styles */
 </style>
 ```
-> [!NOTE]  
-> Vue components can only have one root element inside the `<template>`. If you have more, throw it in a wrapper.
 
 > [!NOTE]   
-> You should almost always use `<style scoped>` to limit the css to the current component. Only top-level css definitions such as `island` should be defined without `<style scoped>`. See `teleoperation/basestation/frontend/src/App.vue`. 
+> `<style scoped>` limits the styling to the current component 
 
 ## Vue-specific syntax
 > [!WARNING]    
-> The below content only applies to Vue, and will not work on other JavaScript frameworks or vanilla JavaScript
+> The below content is Vue specific, and will not work on other JavaScript frameworks or vanilla JavaScript
 
 ## Looping Through Data: `v-for`
-
-### Loop over a number
-
-```vue
-<div v-for="i in x">
-  <button v-on:click="addOnetoX()">Add one to x #{{ i }}</button>
-</div>
-```
-
-### Loop over an array
 
 ```vue
 <div v-for="elt in arr">

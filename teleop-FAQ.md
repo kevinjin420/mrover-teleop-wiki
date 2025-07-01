@@ -1,11 +1,9 @@
-# FAQ Section
-
-For any errors you might encounter during `./ansible.sh build.yml` or `./build.sh`
+Before you look any further, remember to checkout ```teleop``` and run ```
 
 ## Python Virtual Environment
 
 ### Output
-```bash
+```
 ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? ...
 ```
 
