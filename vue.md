@@ -12,24 +12,20 @@ A typical `.vue` file includes;
 Like this:
 ```vue
 <template>
-    <div class="wrapper">
-        <!-- Child content here -->
-    </div>
+  <div class="wrapper">
+      <!-- Child content here -->
+  </div>
 </template>
 <script>
-    // Logic
+  // Logic
 </script>
 <style scoped>
-    /* Styles */
+  /* Styles */
 </style>
 ```
 
 > [!NOTE]   
 > `<style scoped>` limits the styling to the current component 
-
-## Vue-specific syntax
-> [!WARNING]    
-> The below content is Vue specific, and will not work on other JavaScript frameworks or vanilla JavaScript
 
 ## Looping Through Data: `v-for`
 
@@ -215,4 +211,4 @@ components: {
 ```
 
 
-## See [here](https://www.youtube.com/watch?v=xvFZjo5PgG0&pp=0gcJCdgAo7VqN5tD) for a complete example 
+## See [here](https://github.com/umrover/mrover-ros2/wiki/Sample-Vue-Component) for a complete example 
