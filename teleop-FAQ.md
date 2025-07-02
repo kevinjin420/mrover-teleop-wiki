@@ -1,30 +1,47 @@
-Before you look any further, remember to checkout ```teleop``` and run ```
+Before you look any further, remember to checkout `teleop` and run ```./ansible.sh build.yml```, followed by ```./build.sh```. 
 
-## Python Virtual Environment
+## Python venv
 
 ### Output
+
 ```
 ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? ...
 ```
 
-### Explanation
+### Solution
+
+Enter `mrover` before trying to run basestation
+
 You have not entered the Python virtual environment. Do enter the python venv, enter `mrover` in the shell. This macro runs:
+
 ```bash
 $ cd ~/ros2_ws/src/mrover && source ~/ros2_ws/src/mrover/venv/bin/activate
 ```
-which opens the python virtual environment and allows you to run the basestation. 
+
+which opens the python virtual environment and allows you to run the basestation.
+
+---
 
 ## CMake
 
-some files in cmake are missing on teleop
+### Output
 
-ask john?
+From your `./build.sh` output:
 
-science_hw_bridge, etc
+```
+ZED not found
+science_hw_bridge missing
+```
+
+### Solution
+
+Some files that CMake expects are missing. You could try and remove the `#Perception` and `#Embedded` sections in `CMakeLists`, and reach out to your team lead for help.
+
+---
 
 ## manifpy
 
-Ubuntu: 
+The manifpy repository is not installed or activated correctly. Try the code below, running from your `mrover` directory. If that doesn't work, reach out to your team lead.
 
 ```
 sudo apt-get install libeigen3-dev
@@ -35,21 +52,4 @@ cd ~/ros2_ws/src/mrover
 git submodule update --init deps/manif
 ```
 
-neven sent thru slack
-
-integrated with ansible playbook or build.sh somehow?
-
-## extra bun and python installs
-
-### bun
-
-chart.js (probably not needed, chartjs needed to fake data, clean up on teleop?)
-
-
-### pip3 (am i missing something or what)
-
-django
-
-daphne
-
-channels
+---

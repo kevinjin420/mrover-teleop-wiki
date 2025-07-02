@@ -2,9 +2,30 @@
 
 Bootstrap is a css framework that makes css styling a whole lot easier for you. In this codebase, bootstrap's spacing utility is frequently used. Click [here](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to access Bootstrap docs. 
 
+## About CSS Frameworks
+
+CSS frameworks like **Bootstrap** and **TailwindCSS** are designed to reduce the need for writing separate ```.css``` files. Instead, styles can be applied directly in your HTML using predefined classes, making development more convenient.
+
+Although this approach can be powerful, we don’t fully adopt it in this project to keep the learning curve low. Since Vue components combine HTML, JavaScript, and CSS in one file, managing styles is already relatively convenient.
+
+That said, before jumping into ```<style scoped>``` to write something like:
+
+```css
+margin-bottom: 1rem;
+```
+
+You should consider using Bootstrap’s spacing utility instead:
+
+```html
+<div class="mb-3"></div>
+```
+
+This keeps your code cleaner and more consistent with the rest of the project.
 
 ## Bootstrap Spacing Utility
-When working with the codebase, you will encounter many css classes such as `px-2` and `m-3`. These classes are a part of the bootstrap framework, and provide a convenient method to space out components. Click [here](https://getbootstrap.com/docs/5.3/utilities/spacing/#margin-and-padding) to read specifics, below is a short summary. 
+Throughout the codebase, you’ll see classes like ```px-2``` and ```m-3```. These are Bootstrap utility classes that control padding and margin. They provide a fast and readable way to apply spacing without writing custom CSS.
+
+Click [here](https://getbootstrap.com/docs/5.3/utilities/spacing/#margin-and-padding) to read more, below is a short summary. 
 
 ### Property - first letter
 - `m` – margin
