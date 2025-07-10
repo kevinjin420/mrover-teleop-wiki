@@ -22,6 +22,25 @@ which opens the python virtual environment and allows you to run the basestation
 
 ---
 
+## Missing Table
+
+### Output
+
+```
+[gui_backend.sh-1] django.db.utils.OperationalError: no such table: backend_currentautonwaypoints
+```
+
+### Solution
+
+We need to migrate the Django backend to create the table. From your `mrover` directory, run:
+```
+cd teleoperations/basestation_gui
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+
+---
+
 ## CMake
 
 ### Output
