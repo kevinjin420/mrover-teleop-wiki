@@ -68,7 +68,7 @@ Unused:
 CacheControls
 CalibrationCheckbox
 
-Pano not implemented
+Pano not implemented, SHOULD GO IN MAST
 
 ```
 
@@ -84,6 +84,24 @@ combine ish selectsite, autoshutdown, and white leds into one component
 navbar not typesafe
 
 hexhub and actuator are a disaster
+
+SA and Auton tasks Controllerdatatable is deprecated???
+
+Nothing in SoilData seems to work? double check
+
+SOIL DATA CSV STILL TAKES A SCREENSHOT FUCK
+
+---
+
+deprecated:
+
+orientation
+
+soil_temp
+
+soil_humidity
+
+poly_fit
 
 
 ---
@@ -133,8 +151,9 @@ websocket: `arm`
 - `sa_throttle_cmd`
 
 ### Forwarding
-- `arm_controller_state`
-- `arm_joint_data`
+- `arm_controller_state` => `arm_state`
+- `sa_controller_state` => `sa_state`
+- `arm_joint_data` => `fk` (integrates with rover3d, not yet impl.)
 
 ### Receiving
 - `ra_controller`
@@ -168,9 +187,9 @@ websocket: `drive`
 - `joystick_cmd_vel`
 
 ### Forwarding
-- `drive_left_controller_data`
-- `drive_right_controller_data`
-- `drive_controller_data`
+- `drive_left_controller_data` => `drive_left_state`
+- `drive_right_controller_data` => `drive_right_state`
+- `drive_controller_data` => `drive_state`
 
 ### Receiving
 - `joystick`
@@ -196,10 +215,10 @@ websocket: `mast`
 websocket: `nav`
 
 ### Forwarding
-- `nav_state`
-- `gps/fix`
-- `basestation/position`
-- `drone_odometry`
+- `nav_state` => `nav_state`
+- `gps/fix` => `gps_fix`
+- `basestation/position` => `basestation_position`
+- `drone_odometry` => `drone_waypoint`
 
 ---
 
@@ -209,16 +228,15 @@ websocket: `nav`
 websocket: `science`
 
 ### Forwarding
-- `led`
-- `science_thermistors`
-- `science_heater_state`
-- `science_oxygen_data`
-- `science_methane_data`
-- `science_uv_data`
-- `science_temperature_data`
-- `science_humidity_data`
-- `sa_controller_state`
-- `sa_gear_diff_position`
+- `led` => `led`
+- `science_thermistors` => `thermistors`
+- `science_heater_state` => `heater_states`
+- `science_oxygen_data` => `oxygen`
+- `science_uv_data` => `uv`
+- `science_temperature_data` => `temperature`
+- `science_humidity_data` => `humidity`
+- `science_methane_data` => `methane` (cannot find use)
+- `sa_gear_diff_position` => `hexhub_site` (cannot find use)
 
 ### Services
 - `science_change_heater_auto_shutoff_state`
