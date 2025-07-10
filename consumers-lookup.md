@@ -1,10 +1,54 @@
-Here you can search for a topic or service and find the corresponding consumer
-
 Consumers handle communication to ROS2 topics and services, as well as frontend websockets
 
+With the 25' school year, we have switched from one main consumers.py file to multiple consumers to increase the bandwidth and reduce latency to the frontend. 
+
+Each consumer corresponds to a core function of the rover, such as the robotic arm, autonomous navigation, etc. 
+
+---
+
+```
+AutonTask
+    
+
+DMESTask
+├── BasicRoverMap
+├── BasicWaypointEditor
+│   └── MapLayer
+├── DriveControls
+├── ArmControls
+├── Rover3D
+├── ControllerDataTable
+└── MastGimbalControls
+
+```
+
+ROVER3D FK AND IK NOT USED
+
+---
+
+# Websocket Usage per Mission
+Check which websockets a certain mission uses
+
+### DMES
+- `nav`
+- `waypoints`
+- `drive`
+- `arm`
+- `mast`
+
+### ISH
+
+### SA
+
+### Auton
+
+
+---
+
+# Topic and Service consumer lookup
+Check below to see which consumer handles a topic or service
 
 ## ArmConsumer
-`node_name = teleop_arm`
 
 websocket: `arm`
 
@@ -12,9 +56,7 @@ websocket: `arm`
 - `arm_throttle_cmd`
 - `ee_pos_cmd`
 - `ee_vel_cmd`
-- `joystick_cmd_vel`
 - `controller_cmd_vel`
-- `mast_gimbal_throttle_cmd`
 - `sa_throttle_cmd`
 
 ### Forwarding
@@ -22,8 +64,6 @@ websocket: `arm`
 - `arm_joint_data`
 
 ### Receiving
-- `joystick`
-- `mast_keyboard`
 - `ra_controller`
 - `ra_mode`
 - `sa_controller`
@@ -33,7 +73,6 @@ websocket: `arm`
 
 
 ## AutonConsumer
-`node_name = teleop_auton`
 
 websocket: `auton`
 
@@ -49,20 +88,37 @@ websocket: `auton`
 
 
 ## DriveConsumer
-`node_name = teleop_drive`
 
 websocket: `drive`
+
+### Publishing
+- `joystick_cmd_vel`
 
 ### Forwarding
 - `drive_left_controller_data`
 - `drive_right_controller_data`
 - `drive_controller_data`
 
+### Receiving
+- `joystick`
+
+---
+
+
+## MastConsumer
+
+websocket: `mast`
+
+### Publishing
+- `mast_gimbal_throttle_cmd`
+
+### Receiving
+- `mast_keyboard`
+
 ---
 
 
 ## NavConsumer
-`node_name = teleop_nav`
 
 websocket: `nav`
 
@@ -76,29 +132,28 @@ websocket: `nav`
 
 
 ## ScienceConsumer
-`node_name = teleop_science`
 
 websocket: `science`
 
 ### Forwarding
-- `/led`
-- `/science_thermistors`
-- `/science_heater_state`
-- `/science_oxygen_data`
-- `/science_methane_data`
-- `/science_uv_data`
-- `/science_temperature_data`
-- `/science_humidity_data`
-- `/sa_controller_state`
-- `/sa_gear_diff_position`
+- `led`
+- `science_thermistors`
+- `science_heater_state`
+- `science_oxygen_data`
+- `science_methane_data`
+- `science_uv_data`
+- `science_temperature_data`
+- `science_humidity_data`
+- `sa_controller_state`
+- `sa_gear_diff_position`
 
 ### Services
-- `/science_change_heater_auto_shutoff_state`
-- `/sa_enable_limit_switch_sensor_actuator`
-- `/sa_gear_diff_set_position`
-- `/science_enable_heater_<name>` (one per `name` in `heater_names`)
-- `/science_enable_white_led_a`
-- `/science_enable_white_led_b`
+- `science_change_heater_auto_shutoff_state`
+- `sa_enable_limit_switch_sensor_actuator`
+- `sa_gear_diff_set_position`
+- `science_enable_heater_<name>` (one per `name` in `heater_names`)
+- `science_enable_white_led_a`
+- `science_enable_white_led_b`
 
 ### Receiving
 - `heater_enable`
@@ -112,7 +167,6 @@ websocket: `science`
 
 
 ## WaypointsConsumer
-`node_name = teleop_waypoints`
 
 websocket: `waypoints`
 
