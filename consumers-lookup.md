@@ -6,41 +6,114 @@ Each consumer corresponds to a core function of the rover, such as the robotic a
 
 ---
 
+`!` = warning, red squiggle
+
 ```
 AutonTask
-    
+├── OdometryReading !
+│   ├── FlightAltitudeIndicator !
+│   └── IMUCalibration
+├── CameraFeed !
+├── AutonRoverMap !
+├── AutonWaypointEditor !
+│   ├── AutonWaypointItem !
+│   ├── AutonModeCheckbox
+│   ├── BasicCheckbox
+│   ├── VelocityReading
+│   └── AutonWaypointStore !
+├── DriveControls
+├── MastGimbalControls
+└── ControllerDataTable
 
-DMESTask
-├── BasicRoverMap
-├── BasicWaypointEditor
-│   └── MapLayer
+CameraView
+├── ToggleButton
+└── CameraFeed !
+
+DMESTask !
+├── BasicRoverMap !
+├── BasicWaypointEditor !
+│   └── BasicWaypointItem
 ├── DriveControls
 ├── ArmControls
-├── Rover3D
+├── Rover3D ! (separate back out to a js file, then @ts-ignore)
 ├── ControllerDataTable
 └── MastGimbalControls
 
+ISHTask
+├── SelectSite ! (no warning but written like shit)
+├── NinhydrinBenedict
+├── CameraFeed !
+├── ToggleButton
+├── AutoShutdown
+│   └── ToggleButton
+├── SensorData ! (mess)
+└── WhiteLEDs
+
+SATask
+├── BasicRoverMap !
+├── SoilData ! (this component does nothing??)
+├── BasicWaypointEditor !
+│   └── BasicWaypointItem
+├── DriveControls
+├── MastGimbalControls
+├── OdometryReading !
+│   ├── FlightAltitudeIndicator !
+│   └── IMUCalibration
+├── ControllerDataTable
+├── SAArmControls
+├── HexHub ! (fucking dogshit)
+└── LSActuator ! (maybe rethink)
+
+Unused:
+CacheControls
+CalibrationCheckbox
+
+Pano not implemented
+
 ```
 
+
 ROVER3D FK AND IK NOT USED
+
+DMS waypoints not properly typed, errors everywhere
+
+Redo checkboxes, ugly as fuck
+
+combine ish selectsite, autoshutdown, and white leds into one component
+
+navbar not typesafe
+
+hexhub and actuator are a disaster
+
 
 ---
 
 # Websocket Usage per Mission
 Check which websockets a certain mission uses
 
-### DMES
+### Auton
+- `auton`
+- `drive`
+- `nav`
+- `science`
+- `waypoints`
+
+### DM/ES
+- `arm`
+- `drive`
+- `mast`
 - `nav`
 - `waypoints`
-- `drive`
-- `arm`
-- `mast`
 
 ### ISH
+- `science`
 
 ### SA
-
-### Auton
+- `arm`
+- `mast`
+- `nav`
+- `science`
+- `waypoints`
 
 
 ---
