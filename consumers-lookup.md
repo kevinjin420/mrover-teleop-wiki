@@ -4,9 +4,11 @@ With the 25' school year, we have switched from one main consumers.py file to mu
 
 Each consumer corresponds to a core function of the rover, such as the robotic arm, autonomous navigation, etc. 
 
+We try to keep it logical. For example, the `pano`, camera is mounted on the mast, so the `pano` messages and `pano_start_srv` and `pano_end_srv` services go in `MastConsumer`. 
+
 ---
 
-`!` = warning, red squiggle
+`!` = has warnings, red squiggle
 
 ```
 AutonTask
@@ -68,12 +70,10 @@ Unused:
 CacheControls
 CalibrationCheckbox
 
-Pano not implemented, SHOULD GO IN MAST
-
 ```
 
 
-ROVER3D FK AND IK NOT USED
+ROVER3D IK NOT USED, FK NOT IMPLEMENTED
 
 DMS waypoints not properly typed, errors everywhere
 
@@ -81,19 +81,17 @@ Redo checkboxes, ugly as fuck
 
 combine ish selectsite, autoshutdown, and white leds into one component
 
-navbar not typesafe
-
 hexhub and actuator are a disaster
-
-SA and Auton tasks Controllerdatatable is deprecated???
 
 Nothing in SoilData seems to work? double check
 
 SOIL DATA CSV STILL TAKES A SCREENSHOT FUCK
 
+methane removed altogether?
+
 ---
 
-deprecated:
+deprecated (old consumers.py did not handle):
 
 orientation
 
@@ -102,6 +100,8 @@ soil_temp
 soil_humidity
 
 poly_fit
+
+pano_feedback (originally in CameraView.vue, removed)
 
 
 ---
@@ -204,8 +204,13 @@ websocket: `mast`
 ### Publishing
 - `mast_gimbal_throttle_cmd`
 
+### Services
+- `pano_start_srv`
+- `pano_end_srv`
+
 ### Receiving
 - `mast_keyboard`
+- `pano`
 
 ---
 
