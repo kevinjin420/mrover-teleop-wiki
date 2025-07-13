@@ -1,4 +1,12 @@
+upgraded all bun packages to most recent
 
+SASS deprecation warning has not been fixed for a year: [issue](https://github.com/twbs/bootstrap/issues/40849)
+
+in package.json and bun.lock, keep sass on 1.77.6, everything else can be upgraded to most recent
+
+should this be written somewhere for the next lead?
+
+---
 Unused Components: 
 
 CacheControls
@@ -27,6 +35,12 @@ Nothing in SoilData seems to work? double check
 SOIL DATA CSV STILL TAKES A SCREENSHOT FUCK
 
 methane removed altogether?
+
+auton task stuck_status: is it ever changed????
+
+websockets sometimes crash the backend, slow reload
+
+auton ws errors and has to be restarted, adds ~2s
 
 ---
 

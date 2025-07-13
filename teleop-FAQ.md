@@ -20,7 +20,7 @@ $ cd ~/ros2_ws/src/mrover && source ~/ros2_ws/src/mrover/venv/bin/activate
 
 which opens the python virtual environment and allows you to run the basestation.
 
----3
+---
 
 ## CMake
 
