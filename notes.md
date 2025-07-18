@@ -20,11 +20,11 @@ PDBFuse
 
 ---
 
-ROVER3D IK NOT USED, FK NOT IMPLEMENTED
+ROVER3D IK NOT USED, FK ~~NOT IMPLEMENTED~~ DONE
 
 DMS waypoints not properly typed, errors everywhere
 
-Redo checkboxes, ugly as fuck
+Redo checkboxes, ugly
 
 combine ish selectsite, autoshutdown, and white leds into one component
 
@@ -34,13 +34,25 @@ Nothing in SoilData seems to work? double check
 
 SOIL DATA CSV STILL TAKES A SCREENSHOT FUCK
 
-methane removed altogether?
+methane removed altogether? pretty sure
 
 auton task stuck_status: is it ever changed????
 
-websockets sometimes crash the backend, slow reload
+websockets sometimes crash, slow reload
 
 auton ws errors and has to be restarted, adds ~2s
+
+sim not up to date - joint DE default orientation has changed
+
+sim not updated to handle cam and gripper
+
+future point cloud impl? on which task?
+
+sa arm controls broken, missing field "site"
+
+improve button readability, make text black in certain low contrast scenarios
+
+ask john for any more ui complaints
 
 ---
 

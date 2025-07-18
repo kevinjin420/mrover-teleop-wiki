@@ -84,3 +84,23 @@ Open it in your editor, replace ```SERVICE_TYPE``` and ```SERVICE_NAME``` for th
 For more info, check out [this](https://roboticsbackend.com/ros2-topic-cmd-line-tool-debug-ros2-topics-from-the-terminal).
 
 
+---
+
+# For installation on other linux Distros
+
+I made a separate ansible script that makes installing the codebase on other Ubuntu-22 based distros possible: [link](https://github.com/kevinjin420/mrover-ansible-mint). Replace the ansible directory with the one from here. 
+
+### For other maintenance and cleanup, do the following:
+
+```
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/keyrings/microsoft.gpg > /dev/null
+```
+
+and replace the active lines in /etc/apt/sources.list.d/vscode.list with
+
+```
+deb [arch=amd64 signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/code stable main
+```
+
+incomplete...
