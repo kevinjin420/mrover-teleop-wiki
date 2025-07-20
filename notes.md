@@ -70,6 +70,43 @@ pano_feedback (originally in CameraView.vue, removed)
 
 ---
 
+## im a dumbass and deleted this somehow?? (restored)
+
+```
+    def send_auton_command(self, waypoints: list[dict], enabled: bool) -> None:
+        self.enable_auton_srv.call(
+            EnableAuton.Request(
+                enable=enabled,
+                waypoints=[
+                    GPSWaypoint(
+                        tag_id=waypoint["tag_id"],
+                        latitude_degrees=waypoint["latitude_degrees"],
+                        longitude_degrees=waypoint["longitude_degrees"],
+                        type=WaypointType(val=int(waypoint["type"])),
+                    )
+                    for waypoint in waypoints
+                ],
+            )
+        )
+
+    def send_localization_callback(self):
+        try:
+            base_link_in_map = SE3.from_tf_tree(self.buffer, "map", "base_link")
+            self.send_message_as_json(
+                {
+                    "type": "orientation",
+                    "orientation": base_link_in_map.quat().tolist(),
+                }
+            )
+        except Exception as e:
+            pass
+            # node.get_logger().warn(f"Failed to get bearing: {e} Is localization running?")
+```
+
+https://github.com/umrover/mrover-ros2/commit/31d55b598aac06bcf1b95d3c2d81f0713514f800#diff-67463723a0188fff8daa51c3a9b03ec1741b54fdf04727562dd88c25c1eabcf5
+
+---
+
 
 `!` = has warnings, red squiggle
 
